@@ -40,6 +40,8 @@ public class Main {
                     break;
                 case "4":
                     System.out.println("Manager Menu not implemented yet");
+                    ManagerMenu managerMenu1 = new ManagerMenu(memberDB, providerDB, serviceDB, recordDB);
+                    managerMenu1.run();
                     break;
                 case "exit":
                     System.out.println("Exiting program...");

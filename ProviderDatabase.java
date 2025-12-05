@@ -17,9 +17,9 @@ public class ProviderDatabase {
      public static Provider addProvider() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Please add the updated information one at a time starting with their name.");
-                    String newName = sc.nextLine();
-                    System.out.println("Number?");
-                    String newNumber = sc.nextLine();
+        String newName = sc.nextLine();
+        System.out.println("Number?");
+        String newNumber = sc.nextLine();
                     
         Provider p = new Provider(newNumber, newName);
         providers.put(newNumber, p);
@@ -27,11 +27,11 @@ public class ProviderDatabase {
     }
 
     public  Provider editProvider(String number){
-                Scanner c = new Scanner(System.in);
-                Provider p = providers.get(number);
-        
-                    System.out.println("Please add the updated information one at a time starting with their name.");
-                    p.setName(c.nextLine());
+        Scanner c = new Scanner(System.in);
+        Provider p = providers.get(number);
+
+        System.out.println("Please add the updated information one at a time starting with their name.");
+        p.setName(c.nextLine());
         return p;
     }
 

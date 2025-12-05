@@ -1,6 +1,10 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Provider {
     private String number;
     private String name;
+    private List<Service> weeklyRecords = new ArrayList<>();
 
     public Provider(String num, String nm) {
         this.number = num;
