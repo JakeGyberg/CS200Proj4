@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class OperatorMenuApp {
+public class ProviderMenu {
 
     private MemberDatabase memberDB;
     private ProviderDatabase providerDB;
@@ -8,7 +8,7 @@ public class OperatorMenuApp {
     private ServiceRecordDatabase recordDB;
 
     // Constructor receives the shared databases
-    public OperatorMenuApp(MemberDatabase memberDB, ProviderDatabase providerDB,
+    public ProviderMenu(MemberDatabase memberDB, ProviderDatabase providerDB,
                            ServiceDatabase serviceDB, ServiceRecordDatabase recordDB) {
         this.memberDB = memberDB;
         this.providerDB = providerDB;
@@ -18,35 +18,29 @@ public class OperatorMenuApp {
 
     // Run the operator menu
     public void run(Scanner sc) {
-        //Provider currentProvider = null;
+        Provider currentProvider = null;
 
     // Require provider login first
-        //while (currentProvider == null) {
-            //System.out.print("Enter provider number to access system: ");
-           // String provNum = sc.nextLine();
-           // currentProvider = providerDB.verifyProvider(provNum);
-       // if (currentProvider == null) {
-          //  System.out.println("Invalid");
-       // } else {
-          //  System.out.println("Valid");
-       //}
-    
-
+        while (currentProvider == null) {
+            System.out.print("Enter provider number to access system: ");
+            String provNum = sc.nextLine();
+            currentProvider = providerDB.verifyProvider(provNum);
+        if (currentProvider == null) {
+            System.out.println("Invalid");
+        } else {
+            System.out.println("Valid");
+        }
+    }
          while (true) {
             System.out.println("\n==== ChocAn System ====");
-            //System.out.println("1. Verify Member(Might supposed to not be in this menu)");
-            //System.out.println("2. Verify Provider(Might supposed to not be in this menu)");
-            //System.out.println("3. Bill Service(Might supposed to not be in this menu)");
-            //System.out.println("4. Show Provider Directory(Might supposed to not be in this menu)");
+            System.out.println("1. Verify Member");
+            System.out.println("2. Look Up Service Code");
+            System.out.println("3. Bill Service");
+            System.out.println("4. Show Provider Directory");
+            System.out.println("5. View Billing History");
+            System.out.println("6. Exit");
+
             
-            //System.out.println("6. View Billing History(Might supposed to not be in this menu)");
-            System.out.println("1. Add Member");
-            System.out.println("2. Edit Member");
-            System.out.println("3. Delete Member");
-            System.out.println("4. Add Provider");
-            System.out.println("5. Edit Provider");
-            System.out.println("6. Delete Provider");
-            System.out.println("7. Exit");
 
 
 
@@ -56,41 +50,28 @@ public class OperatorMenuApp {
             int choice = Integer.parseInt(sc.nextLine());
 
             switch (choice) {
-                
-                
-                
                 case 1:
-                    MemberDatabase.addMember();
-
-
+                    verifyMember(sc);                    
                     break;
                 case 2:
-                    System.out.println("Please input the member code you wish to edit");
-                    System.out.println(MemberDatabase.getAllMembers());
-                    String edittedM = sc.nextLine();
-                    memberDB.editMember(edittedM);
+                    System.out.println("Please enter the service code you are looking for:");
+                    String numberLook = sc.nextLine(); 
+                    Service checked = serviceDB.lookup(numberLook);
+                    System.out.println("\nThe service is: \n" + "Name: " + checked.getName() + "\nFee:" + checked.getFee());
                     break;
                 case 3:
-                    System.out.println("Please input the member code you wish to delete");
-                    String deleteM = sc.nextLine();
-                    memberDB.deleteMember(deleteM);
+                    billService(sc, currentProvider);
                     break;
                 case 4:
-                    ProviderDatabase.addProvider();
+                    serviceDB.printProviderDirectory();
                     break;
                 case 5:
-                    System.out.println("Please input the provider code you wish to edit");
-                    System.out.println(ProviderDatabase.getAllProviders());
-                    String edittedP = sc.nextLine();
-                    providerDB.editProvider(edittedP);
+                    recordDB.printRecordsByProvider(currentProvider.getValue());
                     break;
                 case 6:
-                    System.out.println("Please input the provider code you wish to delete");
-                    String deleteP = sc.nextLine();
-                    providerDB.deleteProvider(deleteP);
-                    break;
-                case 7:
+                    recordDB.printAllRecords();
                     return;
+                    
                 default:
                     System.out.println("Invalid choice.");
             }

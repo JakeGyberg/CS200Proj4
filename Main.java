@@ -35,7 +35,8 @@ public class Main {
                     operatorMenu.run(sc);
                     break;
                 case "3":
-                    System.out.println("Provider Menu not implemented yet");
+                    ProviderMenu providerMenu = new ProviderMenu(memberDB, providerDB, serviceDB, recordDB);
+                    providerMenu.run(sc);
                     break;
                 case "4":
                     System.out.println("Manager Menu not implemented yet");
