@@ -65,7 +65,7 @@ public class Member {
         return "Member{" +
                 "name='" + name + '\'' +
                 ", number='" + number + '\'' +
-                ", streetAddress='" + streetAddress + '\'' +
+                ", streetAddress='"  + streetAddress + '\'' +
                 ", city='" + city + '\'' +
                 ", state='" + state + '\'' +
                 ", zipCode='" + zipCode + '\'' +

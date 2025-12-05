@@ -31,27 +31,26 @@ public class OperatorMenuApp {
             System.out.println("Welcome, " + currentProvider.getName() + "!");
         }
     }
-        while (true) {
-            System.out.println("\n=== Operator Menu ===");
+         while (true) {
+            System.out.println("\n==== ChocAn System ====");
             System.out.println("1. Verify Member");
             System.out.println("2. Verify Provider");
             System.out.println("3. Bill Service");
             System.out.println("4. Show Provider Directory");
-            System.out.println("5. View Billing History");
-            System.out.println("6. Return to Main Menu");
+            System.out.println("5. Exit");
+            System.out.println("6. View Billing History");
+            System.out.println("7. Add Member");
+            System.out.println("8. Edit Member");
+            System.out.println("9. Delete Member");
+
+
             System.out.print("Choice: ");
 
-            int choice;
-            try {
-                choice = Integer.parseInt(sc.nextLine());
-            } catch (NumberFormatException e) {
-                System.out.println("Invalid input.");
-                continue;
-            }
+            int choice = Integer.parseInt(sc.nextLine());
 
             switch (choice) {
                 case 1:
-                    verifyMember(sc);
+                    verifyMember(sc);                    
                     break;
                 case 2:
                     verifyProvider(sc);
@@ -64,13 +63,70 @@ public class OperatorMenuApp {
                     break;
                 case 5:
                     recordDB.printAllRecords();
-                    break;
+                    return;
                 case 6:
-                    return; // Back to Main Menu
+                    recordDB.printRecordsByProvider(currentProvider.getValue());
+                    break;
+                case 7:
+                    MemberDatabase.addMember();
+
+
+                    break;
+                case 8:
+                    System.out.println("Please input the member code you wish to edit");
+                    System.out.println(MemberDatabase.getAllMembers());
+                    String editted = sc.nextLine();
+                    memberDB.editMember(editted);
+                    break;
+                case 9:
+                    System.out.println("Please input the member code you wish to delete");
+                    String delete = sc.nextLine();
+                    memberDB.deleteMember(delete);
+                    break;
                 default:
                     System.out.println("Invalid choice.");
             }
         }
+        // while (true) {
+        //     System.out.println("\n=== Operator Menu ===");
+        //     System.out.println("1. Verify Member");
+        //     System.out.println("2. Verify Provider");
+        //     System.out.println("3. Bill Service");
+        //     System.out.println("4. Show Provider Directory");
+        //     System.out.println("5. View Billing History");
+        //     System.out.println("6. Return to Main Menu");
+        //     System.out.print("Choice: ");
+
+        //     int choice;
+        //     try {
+        //         choice = Integer.parseInt(sc.nextLine());
+        //     } catch (NumberFormatException e) {
+        //         System.out.println("Invalid input.");
+        //         continue;
+        //     }
+
+        //     switch (choice) {
+        //         case 1:
+        //             verifyMember(sc);
+        //             break;
+        //         case 2:
+        //             verifyProvider(sc);
+        //             break;
+        //         case 3:
+        //             billService(sc, currentProvider);
+        //             break;
+        //         case 4:
+        //             serviceDB.printProviderDirectory();
+        //             break;
+        //         case 5:
+        //             recordDB.printAllRecords();
+        //             break;
+        //         case 6:
+        //             return; // Back to Main Menu
+        //         default:
+        //             System.out.println("Invalid choice.");
+        //     }
+        // }
     }
 
     // Example method to verify member
