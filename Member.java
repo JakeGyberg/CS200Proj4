@@ -10,13 +10,13 @@ public class Member {
     private String city;            // 14 characters
     private String state;           // 2 letters
     private String zipCode;         // 5 digits
-
+    private boolean active;
     // List of service records
     private List<ServiceRecord> services;
 
     public Member(String name, String number,
                   String streetAddress, String city,
-                  String state, String zipCode) {
+                  String state, String zipCode, boolean active) {
 
         this.name = name;
         this.number = number;
@@ -24,6 +24,7 @@ public class Member {
         this.city = city;
         this.state = state;
         this.zipCode = zipCode;
+        this.active = active;
 
         this.services = new ArrayList<>();
     }
@@ -32,6 +33,9 @@ public class Member {
     // Getters and Setters
     // ----------------------
 
+    
+
+
     public String getName() { return name; }
     public String getNumber() { return number; }
     public String getStreetAddress() { return streetAddress; }
@@ -39,6 +43,7 @@ public class Member {
     public String getState() { return state; }
     public String getZipCode() { return zipCode; }
     public List<ServiceRecord> getServices() { return services; }
+    public boolean getActive() {return active;}
 
     public void setName(String name) { this.name = name; }
     public void setNumber(String number) { this.number = number; }
@@ -46,6 +51,7 @@ public class Member {
     public void setCity(String city) { this.city = city; }
     public void setState(String state) { this.state = state; }
     public void setZipCode(String zipCode) { this.zipCode = zipCode; }
+    public void setActive(boolean active) {this.active = active;}
 
     // --------------------------------
     // Add a service record to member
@@ -64,6 +70,7 @@ public class Member {
                 ", state='" + state + '\'' +
                 ", zipCode='" + zipCode + '\'' +
                 ", services=" + services +
+                ", active=" + active + 
                 '}';
     }
 }
