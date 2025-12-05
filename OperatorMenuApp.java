@@ -42,6 +42,11 @@ public class OperatorMenuApp {
             System.out.println("7. Add Member");
             System.out.println("8. Edit Member");
             System.out.println("9. Delete Member");
+            System.out.println("10. Add Provider");
+            System.out.println("11. Edit Provider");
+            System.out.println("12. Delete Provider");
+
+
 
 
             System.out.print("Choice: ");
@@ -75,13 +80,27 @@ public class OperatorMenuApp {
                 case 8:
                     System.out.println("Please input the member code you wish to edit");
                     System.out.println(MemberDatabase.getAllMembers());
-                    String editted = sc.nextLine();
-                    memberDB.editMember(editted);
+                    String edittedM = sc.nextLine();
+                    memberDB.editMember(edittedM);
                     break;
                 case 9:
                     System.out.println("Please input the member code you wish to delete");
-                    String delete = sc.nextLine();
-                    memberDB.deleteMember(delete);
+                    String deleteM = sc.nextLine();
+                    memberDB.deleteMember(deleteM);
+                    break;
+                case 10:
+                    ProviderDatabase.addProvider();
+                    break;
+                case 11:
+                    System.out.println("Please input the provider code you wish to edit");
+                    System.out.println(ProviderDatabase.getAllProviders());
+                    String edittedP = sc.nextLine();
+                    providerDB.editProvider(edittedP);
+                    break;
+                case 12:
+                    System.out.println("Please input the provider code you wish to delete");
+                    String deleteP = sc.nextLine();
+                    providerDB.deleteProvider(deleteP);
                     break;
                 default:
                     System.out.println("Invalid choice.");

@@ -9,4 +9,8 @@ public class Provider {
 
     public String getValue() { return number; }
     public String getName() { return name; }
+
+    public void setName(String name){
+        this.name = name;
+    }
 }
