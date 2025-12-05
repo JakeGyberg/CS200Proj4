@@ -1,4 +1,4 @@
-import java.util.Scanner;
+import java.util.*;
 
 public class OperatorMenuApp {
 
@@ -18,6 +18,19 @@ public class OperatorMenuApp {
 
     // Run the operator menu
     public void run(Scanner sc) {
+        Provider currentProvider = null;
+
+    // Require provider login first
+        while (currentProvider == null) {
+            System.out.print("Enter provider number to access system: ");
+            String provNum = sc.nextLine();
+            currentProvider = providerDB.verifyProvider(provNum);
+        if (currentProvider == null) {
+            System.out.println("Invalid provider number. Try again.");
+        } else {
+            System.out.println("Welcome, " + currentProvider.getName() + "!");
+        }
+    }
         while (true) {
             System.out.println("\n=== Operator Menu ===");
             System.out.println("1. Verify Member");
@@ -44,7 +57,7 @@ public class OperatorMenuApp {
                     verifyProvider(sc);
                     break;
                 case 3:
-                    billService(sc);
+                    billService(sc, currentProvider);
                     break;
                 case 4:
                     serviceDB.printProviderDirectory();
@@ -85,7 +98,63 @@ public class OperatorMenuApp {
         }
     }
 
-    private void billService(Scanner sc) {
-        System.out.println("Billing service not implemented yet");
+    private void billService(Scanner sc, Provider currentProvider) {
+        // System.out.print("Enter provider number: ");
+        // String provNum = sc.nextLine();
+        // Provider p = providerDB.verifyProvider(provNum);
+        // if (p == null) {
+        //     System.out.println("Invalid provider.");
+        //     return;
+        // }
+
+        System.out.print("Enter member number: ");
+        String memNum = sc.nextLine();
+        Member m = memberDB.verifyMember(memNum);
+        if (m == null || !m.getActive()) {
+            System.out.println("Member invalid/suspended.");
+            return;
+        }
+        System.out.println("Validated.");
+
+        System.out.print("Enter service date (MM-DD-YYYY): ");
+        String serviceDate = sc.nextLine();
+
+        System.out.print("Enter 6-digit service code: ");
+        String code = sc.nextLine();
+
+
+
+        Service s = serviceDB.lookup(code);
+        if (s == null) {
+            System.out.println("Invalid service code.");
+            return;
+        }
+        System.out.println("Service: " + s.getName());
+        System.out.println("Fee: $" + s.getFee());
+        System.out.print("Valid?(Y/N): ");
+        String check = sc.nextLine();
+
+        if(!check.equals("Y")){
+            System.out.println("Invalid.");
+            return;
+        }
+
+
+        System.out.print("Comments: ");
+        String comments = sc.nextLine();
+
+        recordDB.addRecord(
+            new ServiceRecord(
+                new Date(),
+                serviceDate,
+                currentProvider.getValue(),
+                memNum,
+                code,
+                comments
+            )
+        );
+
+        System.out.println("Service recorded successfully.");
+    
     }
 }
