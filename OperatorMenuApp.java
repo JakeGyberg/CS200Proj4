@@ -211,7 +211,7 @@ public class OperatorMenuApp {
             new ServiceRecord(
                 new Date(),
                 serviceDate,
-                currentProvider.getValue(),
+                currentProvider.getNumber(),
                 memNum,
                 code,
                 comments

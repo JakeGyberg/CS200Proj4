@@ -66,7 +66,7 @@ public class ProviderMenu {
                     serviceDB.printProviderDirectory();
                     break;
                 case 5:
-                    recordDB.printRecordsByProvider(currentProvider.getValue());
+                    recordDB.printRecordsByProvider(currentProvider.getNumber());
                     break;
                 case 6:
                     recordDB.printAllRecords();
@@ -192,7 +192,7 @@ public class ProviderMenu {
             new ServiceRecord(
                 new Date(),
                 serviceDate,
-                currentProvider.getValue(),
+                currentProvider.getNumber(),
                 memNum,
                 code,
                 comments

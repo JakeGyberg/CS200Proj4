@@ -24,8 +24,8 @@ public class Main {
 
             switch (choice) {
                 case "1":
-                    // Placeholder for Main Menu
-                    System.out.println("Main Menu selected");
+                    MainMenu mainMenu1 = new MainMenu(memberDB, providerDB, serviceDB, recordDB);
+                    mainMenu1.run();
                     break;
                 case "2":
                     // Launch Operator Menu
@@ -39,7 +39,6 @@ public class Main {
                     providerMenu.run(sc);
                     break;
                 case "4":
-                    System.out.println("Manager Menu not implemented yet");
                     ManagerMenu managerMenu1 = new ManagerMenu(memberDB, providerDB, serviceDB, recordDB);
                     managerMenu1.run();
                     break;

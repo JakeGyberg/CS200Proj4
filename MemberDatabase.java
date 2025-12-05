@@ -65,4 +65,24 @@ public class MemberDatabase {
     public static Map<String, Member> getAllMembers() {
         return members;
     }
+
+    public Member lookup(String memberNumber) {
+        // Check if the member exists in the map
+        if (members.containsKey(memberNumber)) {
+            return members.get(memberNumber);
+        } else {
+            // Create a dummy member with number "-1"
+            Member nonExistentMember = new Member(
+                "N/A",          // name
+                "-1",           // number
+                "N/A",          // address
+                "N/A",          // city
+                "N/A",          // state
+                "00000",        // zip
+                false           // active
+            );
+            return nonExistentMember;
+        }
+    }
+
 }

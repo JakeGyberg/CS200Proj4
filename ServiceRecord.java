@@ -23,6 +23,16 @@ public class ServiceRecord {
     public String getServiceCode() { return serviceCode; }
     public String getServiceDate() { return serviceDate; }
     public String getComments() { return comments; }
+
+    public Service getService(ServiceDatabase serviceDB) {
+        return serviceDB.lookup(serviceCode);
+    }
+    public Provider getProvider(ProviderDatabase providerDB) {
+        return providerDB.lookup(providerNum);
+    }
+    public Member getMember(MemberDatabase memberDB) {
+        return memberDB.lookup(memberNum);
+    }
 }
 
 

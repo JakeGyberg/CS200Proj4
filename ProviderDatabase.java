@@ -6,8 +6,8 @@ public class ProviderDatabase {
     private static Map<String, Provider> providers = new HashMap<>();
 
     public ProviderDatabase() {
-        providers.put("111222333", new Provider("111222333", "Dr. Sweet"));
-        providers.put("222333444", new Provider("222333444", "Fit Trainer"));
+        providers.put("111222333", new Provider( "Dr. Sweet", "111222333", "", "", "", ""));
+        providers.put("222333444", new Provider("Fit Trainer", "222333444", "", "", "", ""));
     }
 
     public Provider verifyProvider(String number) {
@@ -21,7 +21,7 @@ public class ProviderDatabase {
         System.out.println("Number?");
         String newNumber = sc.nextLine();
                     
-        Provider p = new Provider(newNumber, newName);
+        Provider p = new Provider(newNumber, newName, "", "", "", "");
         providers.put(newNumber, p);
         return p;
     }
@@ -41,5 +41,23 @@ public class ProviderDatabase {
 
     public static Map<String, Provider> getAllProviders() {
         return providers;
+    }
+
+    public Provider lookup(String providerNumber) {
+        // Check if the member exists in the map
+        if (providers.containsKey(providerNumber)) {
+            return providers.get(providerNumber);
+        } else {
+            // Create a dummy member with number "-1"
+            Provider nonExistentProvider = new Provider(
+                "N/A",
+                "-1",
+                "N/A",
+                "N/A",
+                "N/A",
+                "N/A"
+            );
+            return nonExistentProvider;
+        }
     }
 }

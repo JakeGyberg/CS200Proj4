@@ -1,7 +1,7 @@
 import java.util.Map;
 import java.util.Scanner;
 
-public class ManagerMenu {
+public class MainMenu {
     private final Scanner sc;
 
     private MemberDatabase memberDB;
@@ -10,7 +10,7 @@ public class ManagerMenu {
     private ServiceRecordDatabase recordDB;
 
 
-    public ManagerMenu(MemberDatabase memberDB, ProviderDatabase providerDB, ServiceDatabase serviceDB, ServiceRecordDatabase recordDB) {
+    public MainMenu(MemberDatabase memberDB, ProviderDatabase providerDB, ServiceDatabase serviceDB, ServiceRecordDatabase recordDB) {
         this.sc = new Scanner(System.in);
         this.memberDB = memberDB;
         this.providerDB = providerDB;
@@ -20,7 +20,7 @@ public class ManagerMenu {
 
     public void run() {
         while (true) {
-            System.out.println("\n=== MANAGER MENU ===");
+            System.out.println("\n=== MAIN MENU ===");
             System.out.println("1) Summary Report");
             System.out.println("2) Member Report");
             System.out.println("3) Provider Report");
@@ -29,7 +29,7 @@ public class ManagerMenu {
 
             switch (sc.nextLine()) {
                 case "1":
-                    System.out.println("=== Manager Summary Report ===");
+                    System.out.println("=== Summary Report ===");
 
                     /* 
                     Summary report contains: 
@@ -63,6 +63,7 @@ public class ManagerMenu {
                     break;
 
                 case "2":
+                    System.out.println("=== Member Report ===");
                     Member member;
                     while (true) {
 
@@ -82,7 +83,7 @@ public class ManagerMenu {
                         member = temp;
                         break;
                     }
-                    System.out.println("=== Manager Member Report ===");
+                    
                     
                     System.out.println("Member name: " + member.getName());
                     System.out.println("Member number: " + member.getNumber());
@@ -103,7 +104,7 @@ public class ManagerMenu {
                     break;
 
                 case "3":
-                    System.out.println("=== Manager Provider Report ===");
+                    System.out.println("=== Provider Report ===");
                     Provider provider;
                     while (true) {
 
