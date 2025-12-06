@@ -7,8 +7,8 @@ public class MemberDatabase {
     private static int memberNumCounter = 100000000;
 
     public MemberDatabase() {
-        members.put("123456789", new Member("Alice Choc", "123456789", "123 street lane", "city city", "Alabama", "12345", true));
-        members.put("987654321", new Member("Bob Suspended", "987654321", "321 street lane", "town city", "Texas", "54321", false));
+        members.put("123456789", new Member("User One", "123456789", "123 street lane", "city city", "Alabama", "12345", true));
+        members.put("987654321", new Member("User Two(suspended)", "987654321", "321 street lane", "town city", "Texas", "54321", false));
 
     }
 
@@ -17,23 +17,23 @@ public class MemberDatabase {
     }
 
     public static Member addMember() {
-        Scanner sc = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         memberNumCounter++;
         String newNum = Integer.toString(memberNumCounter);
         System.out.println("Please add the updated information one at a time starting with their name.");
-                    String newName = sc.nextLine();
+                    String newName = scanner.nextLine();
                     System.out.println("Number? (Recomended: " + memberNumCounter+1);
-                    String newNumber = sc.nextLine();
+                    String newNumber = scanner.nextLine();
                     System.out.println("Address?");
-                    String newAddress = sc.nextLine();
+                    String newAddress = scanner.nextLine();
                     System.out.println("City?");
-                    String newCity = sc.nextLine();
+                    String newCity = scanner.nextLine();
                     System.out.println("State?");
-                    String newState = sc.nextLine();
+                    String newState = scanner.nextLine();
                     System.out.println("Zip Code?");
-                    String newZip = sc.nextLine();
+                    String newZip = scanner.nextLine();
                     System.out.println("Active?(True or False)");
-                    boolean newActive = sc.nextBoolean();
+                    boolean newActive = scanner.nextBoolean();
         Member m = new Member(newName, newNumber, newAddress, newCity, newState, newZip, newActive);
         members.put(newNumber, m);
         return m;
