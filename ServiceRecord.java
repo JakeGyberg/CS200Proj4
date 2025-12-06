@@ -1,5 +1,5 @@
 import java.util.Date;
-
+//Stuart and Jordan
 public class ServiceRecord {
     private Date timestamp;
     private String serviceDate;

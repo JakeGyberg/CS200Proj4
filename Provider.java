@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
-
+//Stuart and Zachary
 public class Provider {
     private String name;            // 25 characters
     private String number;          // 9 digits

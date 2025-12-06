@@ -1,5 +1,5 @@
 import java.util.Scanner;
-
+//Jordan and Stuart
 public class Main {
 
     // Shared databases

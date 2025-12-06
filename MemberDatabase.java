@@ -1,7 +1,7 @@
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
-
+//Stuart and Adin
 public class MemberDatabase {
     private static Map<String, Member> members = new HashMap<>();
     private static int memberNumCounter = 100000000;

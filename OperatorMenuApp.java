@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class OperatorMenuApp {
-
+//Stuart and Jordan
     private MemberDatabase memberDB;
     private ProviderDatabase providerDB;
     private ServiceDatabase serviceDB;

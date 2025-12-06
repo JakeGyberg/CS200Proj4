@@ -1,7 +1,7 @@
 
 
 public class Operator {
-
+//Aaralyn and Stuart
     // Required fields
     private String name;            // 25 characters
     private String number;          // 9 digits

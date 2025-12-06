@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
-
+//Stuart and Jake
 public class Member {
 
     // Required fields

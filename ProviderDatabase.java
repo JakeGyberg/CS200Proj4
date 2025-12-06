@@ -1,7 +1,7 @@
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
-
+//Stuart and Jake
 public class ProviderDatabase {
     private static Map<String, Provider> providers = new HashMap<>();
 
